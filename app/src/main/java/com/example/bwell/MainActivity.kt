@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.home    -> { switchTo(Home()); true }
                 R.id.sport   -> { switchTo(Sport()); true }
                 R.id.profile -> { switchTo(Profile()); true }
+                R.id.diet -> { switchTo(Diet()); true }
                 else -> false
             }
         }
