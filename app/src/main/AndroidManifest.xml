@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BWell"
         tools:targetApi="31">
+        <activity android:name=".AddTaskActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

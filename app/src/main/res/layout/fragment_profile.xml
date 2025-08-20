@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Your Name"
         android:textStyle="bold"
-        android:textSize="122sp"
+        android:textSize="28sp"
         app:layout_constraintTop_toTopOf="@id/ivAvatar"
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintEnd_toEndOf="parent"
