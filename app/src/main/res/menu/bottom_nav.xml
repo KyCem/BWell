@@ -1,30 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:title =""
         android:id="@+id/sport"
         android:icon="@drawable/baseline_sports_basketball_24"
+        android:title="" />
 
-        />
     <item
-        android:title =""
         android:id="@+id/diet"
         android:icon="@drawable/baseline_emoji_food_beverage_24"
-        />
+        android:title="" />
+
+    <!-- PLACEHOLDER for center/floating button -->
     <item
-        android:title =""
+        android:id="@+id/chat"
+        android:icon="@drawable/baseline_voice_chat_24"
+        android:title=""
+        android:enabled="false"
+    android:checkable="false"/>
+
+    <item
         android:id="@+id/home"
         android:icon="@drawable/baseline_newspaper_24"
-        />
-
+        android:title="" />
 
     <item
-        android:title =""
         android:id="@+id/profile"
         android:icon="@drawable/baseline_person_24"
-        />
-
-
+        android:title="" />
 
 </menu>

@@ -37,7 +37,6 @@ class TaskAdapter(
         val fmt = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
         val dueTxt = fmt.format(Date(t.dueAtMillis))
         holder.meta.text = "Due: $dueTxt  •  Area: ${t.area}  •  Urgency: ${t.urgency}"
-        // Optionally set icon based on area/urgency
         holder.icon.setImageResource(R.drawable.baseline_task_alt_24)
     }
 

@@ -23,12 +23,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <!-- Split area into left (goal) and right (time) with a 50% guideline -->
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/midGuide"
                 android:layout_width="wrap_content"
@@ -36,7 +37,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.5" />
 
-            <!-- Left column: Goal -->
             <TextView
                 android:id="@+id/titleGoal"
                 android:layout_width="0dp"
@@ -53,7 +53,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Ship MVP of the app with auth dashboard"
+                android:text="Lose 5kg of fat and increase flexibility"
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@id/titleGoal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:maxLines="3" />
 
-            <!-- Right column: Time remaining -->
             <TextView
                 android:id="@+id/titleTime"
                 android:layout_width="0dp"
@@ -124,5 +123,6 @@
         app:srcCompat="@drawable/baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <!-- Uygulama genel yüzey/arka plan -->
+    <color name="colorBackground">#1C1E22</color>   <!-- kömür yerine koyu gri -->
+    <color name="colorOnBackground">#E6E9EE</color>
+
+    <color name="colorSurface">#22252B</color>      <!-- alt bar ve kart yüzeyi -->
+    <color name="colorOnSurface">#E6E9EE</color>
+
+    <!-- Bottom nav -->
+    <color name="bottom_nav_bg">@color/colorSurface</color>
+    <color name="bottom_nav_active">#4A90E2</color>     <!-- evrensel mavi -->
+    <color name="bottom_nav_inactive">#9AA1AB</color>   <!-- nötr gri -->
+
+    <!-- Gerekebilecek -->
     <color name="white">#FFFFFFFF</color>
 </resources>

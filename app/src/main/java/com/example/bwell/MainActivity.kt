@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.bwell.databinding.ActivityMainBinding
 import com.example.bwell.model.Task
+import com.example.bwell.ui.news.NewsFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -43,10 +44,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home    -> { switchTo(Home()); true }
+                R.id.home    -> { switchTo(NewsFragment()); true }
                 R.id.sport   -> { switchTo(Sport()); true }
                 R.id.profile -> { switchTo(Profile()); true }
                 R.id.diet    -> { switchTo(Diet()); true }
+                //R.id.chat    -> { switchTo(ChatFragment()); true }
                 else -> false
             }
         }

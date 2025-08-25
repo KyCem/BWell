@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1032015407315",
+    "project_id": "beewell-b1e9e",
+    "storage_bucket": "beewell-b1e9e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032015407315:android:8eb7738ac44f480ef70c26",
+        "android_client_info": {
+          "package_name": "com.example.bwell"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaPIOyQH7E5GImX9LhNuvzAkZfQrdweow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

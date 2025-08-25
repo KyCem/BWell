@@ -24,14 +24,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav"
         app:labelVisibilityMode="labeled"
-        app:itemIconSize="48dp"
+        app:itemIconSize="34dp"
         app:itemTextAppearanceActive="@style/BottomNavTextActive"
         app:itemTextAppearanceInactive="@style/BottomNavTextInactive"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        android:background="?attr/colorPrimary"
         android:elevation="8dp"
+        android:background="@color/bottom_nav_bg"
         >
+
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +14,10 @@
         android:theme="@style/Theme.BWell"
         tools:targetApi="31">
         <activity android:name=".AddTaskActivity" />
+        <activity android:name=".AddDietItemActivity"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -25,5 +30,6 @@
             </intent-filter>
         </activity>
     </application>
+    android:background="?attr/colorBackground"
 
 </manifest>

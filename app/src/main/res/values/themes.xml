@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
+    <style name="Theme.BWell" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Arka plan / yüzeyler -->
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
 
-    <!-- Use a Material theme as the parent -->
-    <style name="Theme.BWell" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Optional customizations -->
-        <!-- <item name="colorPrimary">@color/purple_500</item> -->
-        <!-- <item name="colorSecondary">@color/teal_200</item> -->
-    </style>
-    <style name="BottomNavTextActive" parent="TextAppearance.Material3.LabelLarge">
-        <item name="android:textSize">18sp</item>   <!-- bump as you like -->
-    </style>
+        <!-- Pencere renkleri (siyah hissini keser) -->
+        <item name="android:statusBarColor">@color/colorSurface</item>
+        <item name="android:navigationBarColor">@color/colorSurface</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
 
-    <!-- Slightly smaller inactive label -->
-    <style name="BottomNavTextInactive" parent="TextAppearance.Material3.LabelMedium">
-        <item name="android:textSize">18sp</item>
+        <!-- (İsteğe bağlı) Force dark kapatma -->
+        <item name="android:forceDarkAllowed">false</item>
     </style>
 </resources>
