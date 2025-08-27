@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,44 +14,110 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
+        <!-- Left icon -->
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/ivTaskIcon"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:contentDescription="icon"
-            android:src="@drawable/baseline_task_alt_24"
-            />
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/baseline_task_alt_24" />
 
-        <LinearLayout
+        <!-- Center content container (read/edit swap) -->
+        <FrameLayout
+            android:id="@+id/contentContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/title"
+            <!-- READ MODE -->
+            <LinearLayout
+                android:id="@+id/groupRead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:text="Task title" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/description"
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Task title" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="13sp"
+                    android:text="Task description..." />
+
+                <TextView
+                    android:id="@+id/meta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textSize="12sp"
+                    android:text="Due: —  •  Area: —  •  Urgency: —" />
+            </LinearLayout>
+
+            <!-- EDIT MODE (hidden by default) -->
+            <LinearLayout
+                android:id="@+id/groupEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textSize="13sp"
-                android:text="Task description..." />
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <TextView
-                android:id="@+id/meta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textSize="12sp"
-                android:text="Due: —                        • Area: —                        • Urgency: —" />
-        </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Title">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences|textPersonName"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:layout_marginTop="8dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:minLines="2"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Area"
+                    android:layout_marginTop="8dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Right toggle button: edit ↔ delete -->
+        <ImageButton
+            android:id="@+id/btnEdit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="edit"
+            app:srcCompat="@drawable/baseline_edit_24" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

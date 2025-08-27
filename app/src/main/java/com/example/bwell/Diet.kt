@@ -23,6 +23,8 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.FirebaseApp
 import android.util.Log
+import com.google.android.material.progressindicator.CircularProgressIndicator
+import android.view.View
 
 class Diet : Fragment() {
 
@@ -66,6 +68,7 @@ class Diet : Fragment() {
         rvEvening = view.findViewById(R.id.rvEvening)
         tvTotal = view.findViewById(R.id.tvTotalCalories)
         tvQuality = view.findViewById(R.id.tvQualityScore)
+        progressOverlay = view.findViewById(R.id.progressOverlay)
 
         adapterMorning = DietAdapter(morning)
         adapterAfternoon = DietAdapter(afternoon)
@@ -84,13 +87,20 @@ class Diet : Fragment() {
         }
         logFirebaseEnv()
 
+        setLoading(true)          // <— show spinner before we subscribe
         subscribeToDiet()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         dietListener?.remove()
         dietListener = null
+    }
+    private lateinit var progressOverlay: View
+
+    private fun setLoading(loading: Boolean) {
+        progressOverlay.visibility = if (loading) View.VISIBLE else View.GONE
     }
 
     private fun logFirebaseEnv() {
@@ -107,16 +117,23 @@ class Diet : Fragment() {
 
     /** Realtime Firestore subscription */
     private fun subscribeToDiet() {
-
         dietListener?.remove()
         dietListener = db.collection("dietEntries")
             .orderBy("createdAt", Query.Direction.DESCENDING)
             .addSnapshotListener { snaps, e ->
-                if (e != null || snaps == null) return@addSnapshotListener
+                // First response -> stop loading, even if error
+                setLoading(false)
+
+                if (e != null || snaps == null) {
+                    // Optional: keep last shown data; or clear if you prefer
+                    // adapterMorning.replaceAll(emptyList()) ... (you currently use notifyDataSetChanged)
+                    return@addSnapshotListener
+                }
                 val all = snaps.documents.mapNotNull { it.toDietEntryOrNull() }
                 applyDietData(all)
             }
     }
+
 
     /** Map Firestore doc -> DietEntry (defensive) */
     private fun DocumentSnapshot.toDietEntryOrNull(): DietEntry? {

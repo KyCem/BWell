@@ -84,9 +84,12 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
-    // Needed for ActivityResultContracts in fragments and other ktx helpers
     implementation("androidx.activity:activity-ktx:1.9.2")
     implementation("androidx.fragment:fragment-ktx:1.7.1")
     implementation ("io.coil-kt:coil:2.7.0")
-
+    implementation ("com.google.android.material:material:<latest>")
+    implementation(platform("com.google.firebase:firebase-bom:33.2.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }

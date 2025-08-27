@@ -8,6 +8,25 @@
     android:layout_height="match_parent"
     tools:context=".Diet">
 
+    <FrameLayout
+        android:id="@+id/progressOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#80000000"
+    android:visibility="gone"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        app:indicatorSize="48dp"
+        app:trackThickness="4dp" />
+</FrameLayout>
     <!-- Scrollable content -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/dietScroll"

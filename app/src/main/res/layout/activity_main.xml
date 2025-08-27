@@ -27,8 +27,8 @@
         app:itemIconSize="34dp"
         app:itemTextAppearanceActive="@style/BottomNavTextActive"
         app:itemTextAppearanceInactive="@style/BottomNavTextInactive"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/material_dynamic_primary95"
+        app:itemTextColor="@color/colorOnSurface"
         android:elevation="8dp"
         android:background="@color/bottom_nav_bg"
         >

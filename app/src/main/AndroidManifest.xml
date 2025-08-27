@@ -14,21 +14,27 @@
         android:theme="@style/Theme.BWell"
         tools:targetApi="31">
         <activity android:name=".AddTaskActivity" />
-        <activity android:name=".AddDietItemActivity"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
-
+        <activity android:name=".AddDietItemActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LandingActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.BWell">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
     </application>
     android:background="?attr/colorBackground"
 

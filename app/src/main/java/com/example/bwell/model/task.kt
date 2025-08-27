@@ -8,15 +8,19 @@ data class Task(
     val description: String,
     val dueAtMillis: Long,   // store time as epoch millis
     val area: String,
-    val urgency: Int         // 1..5 (or whatever scale you prefer)
+    val urgency: Int,
+    val id: String = "",
+
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readLong(),
         parcel.readString() ?: "",
-        parcel.readInt()
-    )
+        parcel.readInt(),
+        parcel.readString() ?: "",
+
+        )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
@@ -24,6 +28,8 @@ data class Task(
         parcel.writeLong(dueAtMillis)
         parcel.writeString(area)
         parcel.writeInt(urgency)
+        parcel.writeString(id)
+
     }
 
     override fun describeContents() = 0

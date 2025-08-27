@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.sport   -> { switchTo(Sport()); true }
                 R.id.profile -> { switchTo(Profile()); true }
                 R.id.diet    -> { switchTo(Diet()); true }
-                //R.id.chat    -> { switchTo(ChatFragment()); true }
+                R.id.chat    -> { switchTo(ChatFragment()); true }
                 else -> false
             }
         }

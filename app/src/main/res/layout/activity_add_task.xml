@@ -126,16 +126,18 @@
                 android:layout_height="wrap_content"
                 android:hint=""/>
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
             style="@style/Widget.Material3.Button.IconButton.Filled"
-            android:layout_width="120dp"
+            android:layout_width="125dp"
             android:layout_gravity="right"
             android:layout_height="wrap_content"
             app:cornerRadius="10dp"
             android:layout_marginTop="20dp"
             android:text="Save" />
 
+
     </LinearLayout>
+
 </ScrollView>
+

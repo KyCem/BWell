@@ -9,7 +9,7 @@
     <!-- Bottom nav -->
     <color name="bottom_nav_bg">@color/colorSurface</color>
     <color name="bottom_nav_active">#4A90E2</color>     <!-- evrensel mavi -->
-    <color name="bottom_nav_inactive">#9AA1AB</color>   <!-- nötr gri -->
+    <color name="bottom_nav_inactive">#4A90E2</color>   <!-- nötr gri -->
 
     <!-- Gerekebilecek -->
     <color name="white">#FFFFFFFF</color>

@@ -35,6 +35,14 @@ class Sport : Fragment() {
             recycler.smoothScrollToPosition(0)
         }
     }
+    private val editTaskLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { res ->
+        if (res.resultCode == Activity.RESULT_OK) {
+            // snapshot listener will auto-refresh; optional scroll:
+            recycler.smoothScrollToPosition(0)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -46,10 +54,48 @@ class Sport : Fragment() {
         db = FirebaseFirestore.getInstance()
 
         recycler = view.findViewById(R.id.tasksRecycler)
-        adapter = TaskAdapter(tasks)
+        adapter = TaskAdapter(
+            items = tasks,
+            onStartEdit = {
+                view.findViewById<FloatingActionButton>(R.id.fabAdd)?.hide()
+                view.findViewById<FloatingActionButton>(R.id.fabConfirmEdit)?.show()
+            },
+            onRequestDelete = { task ->
+                // confirm, then delete
+                androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                    .setTitle("Delete task ?")
+                    .setMessage("This cannot be undone.")
+                    .setPositiveButton("Delete") { _, _ ->
+                        if (task.id.isNotEmpty()) {
+                            db.collection("tasks").document(task.id).delete()
+                            adapter.exitEditMode()
+                        }
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .show()
+            },
+            onCancelEditUI = {
+                view.findViewById<FloatingActionButton>(R.id.fabConfirmEdit)?.hide()
+                view.findViewById<FloatingActionButton>(R.id.fabAdd)?.show()
+            }
+        )
         recycler.layoutManager = LinearLayoutManager(requireContext())
         recycler.adapter = adapter
-
+        view.findViewById<FloatingActionButton>(R.id.fabConfirmEdit)?.setOnClickListener {
+            val edited = adapter.getEditedTask() ?: return@setOnClickListener
+            if (edited.id.isNotEmpty()) {
+                db.collection("tasks").document(edited.id).update(
+                    mapOf(
+                        "title" to edited.title,
+                        "description" to edited.description,
+                        "area" to edited.area
+                    )
+                ).addOnSuccessListener {
+                    adapter.exitEditMode()
+                    recycler.smoothScrollToPosition(0)
+                }
+            }
+        }
         // Right-bottom FAB (add task) — keep yours if already set up
         view.findViewById<FloatingActionButton>(R.id.fabAdd)?.setOnClickListener {
             addTaskLauncher.launch(Intent(requireContext(), AddTaskActivity::class.java))
@@ -97,6 +143,7 @@ class Sport : Fragment() {
         val area = getString("area").orEmpty().ifBlank { "General" }
         val urgency = (getLong("urgency") ?: 1L).toInt().coerceIn(1, 5)
         return Task(
+            id = id,  // <-- keep the document id
             title = title,
             description = description,
             dueAtMillis = dueAt,
@@ -104,4 +151,5 @@ class Sport : Fragment() {
             urgency = urgency
         )
     }
+
 }
